@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import NavBar from "./NavBar";
+import FormComponent from "./FormComponent";
 import { updateCard, readDeck, readCard } from "../utils/api";
 
 function EditCard() {
@@ -31,13 +32,6 @@ function EditCard() {
     loadDeck();
   }, [cardId, deckId]);
 
-  const handleChange = ({ target }) => {
-    setFormData({
-      ...formData,
-      [target.name]: target.value,
-    });
-  };
-
   const handleCancel = (event) => {
     event.preventDefault();
     history.goBack();
@@ -45,13 +39,13 @@ function EditCard() {
 
   async function updateCardFromAPI() {
     await updateCard(formData);
-    setFormData({});
+    history.goBack();
   }
 
   const handleSubmit = (event) => {
     event.preventDefault();
     updateCardFromAPI();
-    history.goBack();
+    setFormData({});
   };
 
   return (
@@ -60,30 +54,9 @@ function EditCard() {
         <>
           <NavBar deck={deck} cardId={cardId} />
           <h2>Edit Card</h2>
-          <form>
-            <label htmlFor="front">
-              Front
-              <textarea
-                id="front"
-                type="text"
-                name="front"
-                onChange={handleChange}
-                value={formData.front}
-              ></textarea>
-            </label>
-            <label htmlFor="back">
-              Back
-              <textarea
-                id="back"
-                type="text"
-                name="back"
-                onChange={handleChange}
-                value={formData.back}
-              ></textarea>
-            </label>
-            <button onClick={handleCancel}>Cancel</button>
-            <button onClick={handleSubmit}>Submit</button>
-          </form>
+          <FormComponent formData={formData} setFormData={setFormData} />
+          <button onClick={handleCancel}>Cancel</button>
+          <button onClick={handleSubmit}>Submit</button>
         </>
       ) : (
         <p>Loading...</p>
