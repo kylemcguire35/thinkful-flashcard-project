@@ -41,52 +41,6 @@
       "back": "Renders the first matching child <Route> ",
       "deckId": 2,
       "id": 5
-    },
-    {
-      "front": "b",
-      "back": "b",
-      "id": 7
-    },
-    {
-      "front": "bitch",
-      "back": "b",
-      "id": 8
-    },
-    {
-      "front": "ate",
-      "back": "a",
-      "id": 9
-    },
-    {
-      "front": "bitch",
-      "back": "b",
-      "id": 10
-    },
-    {
-      "front": "cock",
-      "back": "c",
-      "id": 11
-    },
-    {
-      "front": "damn",
-      "back": "d",
-      "id": 12
-    },
-    {
-      "front": "eat",
-      "back": "e",
-      "deckId": "1",
-      "id": 13
-    },
-    {
-      "front": "b",
-      "back": "bitch",
-      "id": 15
-    },
-    {
-      "front": "cat",
-      "back": "cat",
-      "id": 16
     }
   ]
 }
